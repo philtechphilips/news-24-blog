@@ -201,6 +201,8 @@ def aggregate(
     filters: dict[str, Any] | None = None,
     columns: Sequence[Any] = (),
     group_by: Sequence[Any] = (),
+    where: Where = (),
+    join: Joins = (),
 ) -> list[Row[Any]]:
     """Run a grouped query, e.g. users per role:
 
@@ -211,12 +213,8 @@ def aggregate(
         group_by=[User.role],
     )
     """
-    query = (
-        db.query(*columns)
-        .select_from(model)
-        .filter_by(**(filters or {}))
-        .filter(*_not_deleted(model))
-    )
+    query = db.query(*columns).select_from(model).filter_by(**(filters or {}))
+    query = _apply(query, where, join).filter(*_not_deleted(model))
     if group_by:
         query = query.group_by(*group_by)
     return query.all()
@@ -232,9 +230,18 @@ def hard_delete(db: Session, model: type[Any], filters: dict[str, Any]) -> int:
     return 1
 
 
-def hard_delete_many(db: Session, model: type[Any], filters: dict[str, Any]) -> int:
+def hard_delete_many(
+    db: Session,
+    model: type[Any],
+    filters: dict[str, Any] | None = None,
+    where: Where = (),
+) -> int:
     """Permanently delete every matching row. Returns how many were deleted."""
-    count = db.query(model).filter_by(**filters).delete(synchronize_session=False)
+    if not filters and not where:
+        # An empty match would wipe the whole table.
+        raise ValueError("hard_delete_many needs filters or where")
+    query = db.query(model).filter_by(**(filters or {})).filter(*where)
+    count = query.delete(synchronize_session=False)
     db.commit()
     return count
 

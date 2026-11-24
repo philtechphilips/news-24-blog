@@ -12,6 +12,8 @@ from app.users import service as users_service
 from app.users.models import Role, User
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
+# Same, but a missing token isn't an error (for routes guests can use too).
+optional_oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login", auto_error=False)
 
 
 def get_current_user(
@@ -34,6 +36,22 @@ def get_current_user(
 
 
 CurrentUser = Annotated[User, Depends(get_current_user)]
+
+
+def get_optional_user(
+    token: Annotated[str | None, Depends(optional_oauth2_scheme)], db: DbSession
+) -> User | None:
+    """The logged-in user, or None for guests. A bad or expired token counts
+    as a guest rather than an error."""
+    if token is None:
+        return None
+    try:
+        return get_current_user(token, db)
+    except HTTPException:
+        return None
+
+
+OptionalUser = Annotated[User | None, Depends(get_optional_user)]
 
 
 def require_roles(*roles: Role) -> Callable[[User], User]:

@@ -7,7 +7,7 @@ from app.auth.dependencies import AdminUser, CurrentUser
 from app.core.database import DbSession
 from app.users import service
 from app.users.models import Role, User
-from app.users.schemas import RoleUpdate, UserCreate, UserResponse
+from app.users.schemas import ProfileUpdate, RoleUpdate, UserCreate, UserResponse
 
 router = APIRouter(prefix="/users", tags=["Users"])
 
@@ -51,6 +51,12 @@ def create_user(user_in: UserCreate, db: DbSession):
 @router.get("/me", response_model=UserResponse)
 def get_me(current_user: CurrentUser):
     return current_user
+
+
+@router.patch("/me", response_model=UserResponse)
+def update_me(body: ProfileUpdate, db: DbSession, current_user: CurrentUser):
+    """Change your display name (shown on your comments)."""
+    return service.update_profile(db, current_user, body)
 
 
 @router.get("/", response_model=list[UserResponse])

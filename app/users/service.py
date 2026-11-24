@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 from app.core import crud
 from app.core.security import hash_password
 from app.users.models import Role, User
-from app.users.schemas import UserCreate
+from app.users.schemas import ProfileUpdate, UserCreate
 
 
 def get_user(db: Session, user_id: uuid.UUID) -> User | None:
@@ -27,9 +27,14 @@ def create_user(db: Session, user_in: UserCreate, role: Role = Role.USER) -> Use
     data = {
         "email": user_in.email,
         "password": hash_password(user_in.password),
+        "name": user_in.name,
         "role": role,
     }
     return crud.create(db, User, data)
+
+
+def update_profile(db: Session, user: User, profile: ProfileUpdate) -> User:
+    return crud.patch(db, user, profile.model_dump())
 
 
 def set_role(db: Session, user: User, role: Role) -> User:

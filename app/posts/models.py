@@ -26,6 +26,8 @@ class Posts(Base):
     writer_id: Mapped[uuid.UUID | None] = mapped_column(
         ForeignKey("writers.id", ondelete="SET NULL"), index=True
     )
+    # Bumped each time a reader shares the post (copy link, X, WhatsApp...).
+    share_count: Mapped[int] = mapped_column(server_default="0", default=0)
     created_at: Mapped[datetime] = mapped_column(
         TIMESTAMP(timezone=True), server_default=func.now()
     )
