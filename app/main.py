@@ -5,8 +5,10 @@ from fastapi.responses import JSONResponse
 from app.auth.router import router as auth_router
 from app.categories.router import router as categories_router
 from app.core.config import settings
+from app.podcasts.router import router as podcasts_router
 from app.posts.router import router as posts_router
 from app.users.router import router as users_router
+from app.writers.router import router as writers_router
 
 app = FastAPI(title=settings.project_name)
 
@@ -31,6 +33,8 @@ app.include_router(auth_router)
 app.include_router(users_router)
 app.include_router(categories_router)
 app.include_router(posts_router)
+app.include_router(writers_router)
+app.include_router(podcasts_router)
 
 
 @app.get("/")

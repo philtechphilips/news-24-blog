@@ -2,7 +2,7 @@ import uuid
 
 from fastapi.testclient import TestClient
 
-from app.posts.service import slugify
+from app.core.slugs import slugify
 
 
 def create_post(client: TestClient, headers: dict[str, str], **fields) -> dict:

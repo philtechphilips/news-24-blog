@@ -12,7 +12,7 @@ Soft delete: if a model has an `is_deleted` column, fetch/fetch_one/aggregate
 skip deleted rows and delete_item/delete_multiple_items set it to True.
 """
 
-from collections.abc import Sequence
+from collections.abc import Iterable, Sequence
 from typing import Any, Literal, TypeVar
 
 from sqlalchemy import Row, func
@@ -208,3 +208,18 @@ def hard_delete_many(db: Session, model: type[Any], filters: dict[str, Any]) -> 
     count = db.query(model).filter_by(**filters).delete(synchronize_session=False)
     db.commit()
     return count
+
+
+def patch(
+    db: Session, item: ModelT, data: dict[str, Any], required: Iterable[str] = ()
+) -> ModelT:
+    """Apply a PATCH body to a row. Unlike update(), a None clears the column,
+    except for `required` columns, where None is ignored."""
+    required = set(required)
+    for key, value in data.items():
+        if value is None and key in required:
+            continue
+        setattr(item, key, value)
+    db.commit()
+    db.refresh(item)
+    return item

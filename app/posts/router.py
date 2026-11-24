@@ -5,6 +5,7 @@ from fastapi import APIRouter, HTTPException, Query, status
 
 from app.auth.dependencies import AdminUser
 from app.core.database import DbSession
+from app.core.slugs import SlugTakenError, UnknownReferenceError, to_http_error
 from app.posts import service
 from app.posts.models import Posts
 from app.posts.schemas import PostCreate, PostResponse, PostUpdate
@@ -25,20 +26,15 @@ def _get_or_404(db: DbSession, post_id: UUID) -> Posts:
     return post
 
 
-def _bad_request(error: Exception) -> HTTPException:
-    code = (
-        status.HTTP_409_CONFLICT
-        if isinstance(error, service.SlugTakenError)
-        else status.HTTP_422_UNPROCESSABLE_CONTENT
-    )
-    return HTTPException(status_code=code, detail=str(error))
-
-
 @router.get("/", response_model=list[PostResponse])
 def list_posts(
-    db: DbSession, category_id: UUID | None = None, limit: Limit = 20, skip: Skip = 0
+    db: DbSession,
+    category_id: UUID | None = None,
+    writer_id: UUID | None = None,
+    limit: Limit = 20,
+    skip: Skip = 0,
 ):
-    return service.list_published(db, category_id, limit, skip)
+    return service.list_published(db, category_id, writer_id, limit, skip)
 
 
 # Declared before /{post_id} so "all" isn't parsed as an id.
@@ -66,8 +62,8 @@ def get_post(post_id: UUID, db: DbSession, _: AdminUser):
 def create_post(body: PostCreate, db: DbSession, _: AdminUser):
     try:
         return service.create_post(db, body)
-    except (service.SlugTakenError, service.UnknownCategoryError) as error:
-        raise _bad_request(error) from None
+    except (SlugTakenError, UnknownReferenceError) as error:
+        raise to_http_error(error) from None
 
 
 @router.patch("/{post_id}", response_model=PostResponse)
@@ -75,8 +71,8 @@ def update_post(post_id: UUID, body: PostUpdate, db: DbSession, _: AdminUser):
     post = _get_or_404(db, post_id)
     try:
         return service.update_post(db, post, body)
-    except (service.SlugTakenError, service.UnknownCategoryError) as error:
-        raise _bad_request(error) from None
+    except (SlugTakenError, UnknownReferenceError) as error:
+        raise to_http_error(error) from None
 
 
 @router.delete("/{post_id}", status_code=status.HTTP_204_NO_CONTENT)

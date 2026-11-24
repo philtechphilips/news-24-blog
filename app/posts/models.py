@@ -22,6 +22,10 @@ class Posts(Base):
     category_id: Mapped[uuid.UUID | None] = mapped_column(
         ForeignKey("categories.id", ondelete="SET NULL"), index=True
     )
+    # The byline. Deleting the writer keeps the post, without an author.
+    writer_id: Mapped[uuid.UUID | None] = mapped_column(
+        ForeignKey("writers.id", ondelete="SET NULL"), index=True
+    )
     created_at: Mapped[datetime] = mapped_column(
         TIMESTAMP(timezone=True), server_default=func.now()
     )
