@@ -92,3 +92,40 @@ def test_delete(client, admin_headers):
     url = f"/posts/{post['id']}"
     assert client.delete(url, headers=admin_headers).status_code == 204
     assert client.get(url, headers=admin_headers).status_code == 404
+
+
+def test_search(client, admin_headers):
+    economy = client.post(
+        "/categories/", json={"name": "Economy"}, headers=admin_headers
+    ).json()
+    create_post(
+        client,
+        admin_headers,
+        title="Central banks hold rates",
+        body="Inflation is cooling.",
+        category_id=economy["id"],
+        is_published=True,
+    )
+    create_post(
+        client,
+        admin_headers,
+        title="Cup final preview",
+        body="Why the banks of the river flood every spring.",
+        is_published=True,
+    )
+    create_post(client, admin_headers, title="Banks draft", body="x")  # unpublished
+
+    def search(q: str) -> list[str]:
+        return [p["title"] for p in client.get("/posts/", params={"q": q}).json()]
+
+    # Title matches come first; drafts never show up
+    assert search("BANKS") == ["Central banks hold rates", "Cup final preview"]
+    assert search("inflation") == ["Central banks hold rates"]  # body
+    assert search("economy") == ["Central banks hold rates"]  # category name
+    assert search("banks river") == ["Cup final preview"]  # every word must match
+    assert search("100%") == []  # % is literal, not a wildcard
+    assert len(search("   ")) == 2  # blank search lists everything
+
+
+def test_search_query_too_long(client):
+    assert client.get("/posts/", params={"q": "x" * 101}).status_code == 422

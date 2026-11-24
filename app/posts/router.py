@@ -31,10 +31,13 @@ def list_posts(
     db: DbSession,
     category_id: UUID | None = None,
     writer_id: UUID | None = None,
+    q: Annotated[str | None, Query(max_length=100, description="Search text")] = None,
     limit: Limit = 20,
     skip: Skip = 0,
 ):
-    return service.list_published(db, category_id, writer_id, limit, skip)
+    """Published posts, newest first. Anyone can read these. `q` searches the
+    title, excerpt, body and category name."""
+    return service.list_published(db, category_id, writer_id, q, limit, skip)
 
 
 # Declared before /{post_id} so "all" isn't parsed as an id.
