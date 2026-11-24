@@ -23,6 +23,10 @@ dev = [
 ]
 
 # Project commands, like npm scripts. Run `uv run poe` to list them.
+[tool.poe]
+# Don't write __pycache__ folders into the project when running any task.
+env = { PYTHONDONTWRITEBYTECODE = "1" }
+
 [tool.poe.tasks]
 dev = { cmd = "fastapi dev app/main.py", help = "Run the dev server with auto-reload" }
 start = { cmd = "fastapi run app/main.py", help = "Run the production server" }
