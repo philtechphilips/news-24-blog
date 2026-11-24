@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.auth.router import router as auth_router
 from app.core.config import settings
 from app.users.router import router as users_router
+from app.posts.router import router as posts_router
 
 app = FastAPI(title=settings.project_name)
 
@@ -17,11 +18,12 @@ app.add_middleware(
 
 app.include_router(auth_router)
 app.include_router(users_router)
+app.include_router(posts_router)
 
 
 @app.get("/")
 def root():
-    return {"message": "Hello World pushing out to ubuntu"}
+    return {"message": "News 24. API V1 running"}
 
 
 @app.get("/health")
