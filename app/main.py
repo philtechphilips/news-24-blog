@@ -1,5 +1,6 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 
 from app.auth.router import router as auth_router
 from app.categories.router import router as categories_router
@@ -16,6 +17,15 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.exception_handler(Exception)
+async def unhandled_error(request: Request, exc: Exception) -> JSONResponse:
+    """Any error a route didn't handle (e.g. the database is down) becomes a JSON
+    500. HTTPExceptions like 404 and 409 never reach here, and the traceback is
+    still logged by the server."""
+    return JSONResponse(status_code=500, content={"detail": "Internal server error"})
+
 
 app.include_router(auth_router)
 app.include_router(users_router)
