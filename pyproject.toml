@@ -42,7 +42,7 @@ createadmin = { cmd = "python -m app.users.create_admin", help = "Create an admi
 clean = { shell = "find . -name __pycache__ -not -path './.venv/*' -prune -exec rm -rf {} + && rm -rf .pytest_cache .ruff_cache", help = "Delete __pycache__ and tool caches" }
 
 [tool.poe.tasks.makemigration]
-cmd = "alembic revision --autogenerate -m ${message}"
+cmd = 'alembic revision --autogenerate -m "${message}"'
 help = "Generate a migration from model changes"
 args = [{ name = "message", positional = true, required = true, help = "Short description, e.g. \"add user bio\"" }]
 
