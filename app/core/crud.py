@@ -5,8 +5,20 @@ Every function takes the db session and a model class, e.g.:
     admins = fetch(db, User, {"role": Role.ADMIN}, limit=20)
     user = fetch_one(db, User, {"email": email})
 
-`filters` is a dict of column == value pairs. `populate` is a list of
-relationship names to load with the result (like mongoose .populate()).
+`filters` is a dict of column == value pairs. For anything else (LIKE, OR,
+ranges, subqueries) pass SQLAlchemy conditions in `where`; both apply:
+
+    fetch(db, Posts, {"is_published": True}, where=[Posts.title.ilike("%ai%")])
+
+`order_by` (fetch only) takes SQLAlchemy order expressions and replaces
+sort_by/sort_type. `join` adds LEFT OUTER JOINs, as (target, on) pairs, so
+`where` and `order_by` can use another table's columns:
+
+    fetch(db, Posts, join=[(Categories, Posts.category_id == Categories.id)],
+          order_by=[Categories.name, Posts.created_at.desc()])
+
+`populate` is a list of relationship names to load with the result (like
+mongoose .populate()).
 
 Soft delete: if a model has an `is_deleted` column, fetch/fetch_one/aggregate
 skip deleted rows and delete_item/delete_multiple_items set it to True.
@@ -15,8 +27,12 @@ skip deleted rows and delete_item/delete_multiple_items set it to True.
 from collections.abc import Iterable, Sequence
 from typing import Any, Literal, TypeVar
 
-from sqlalchemy import Row, func
+from sqlalchemy import ColumnElement, Row, func
 from sqlalchemy.orm import Query, Session, defer, selectinload
+
+Where = Sequence[ColumnElement[bool]]
+# (target, on): e.g. (Categories, Posts.category_id == Categories.id)
+Joins = Sequence[tuple[Any, Any]]
 
 ModelT = TypeVar("ModelT")
 
@@ -34,14 +50,22 @@ def _require_soft_delete(model: type[Any]) -> None:
         )
 
 
+def _apply(query: Query, where: Where, join: Joins) -> Query:
+    for target, on in join:
+        query = query.outerjoin(target, on)
+    return query.filter(*where)
+
+
 def _base_query(
     db: Session,
     model: type[ModelT],
     filters: dict[str, Any] | None,
     populate: Sequence[str],
     exclude_deleted: bool,
+    where: Where = (),
+    join: Joins = (),
 ) -> Query[ModelT]:
-    query = db.query(model).filter_by(**(filters or {}))
+    query = _apply(db.query(model).filter_by(**(filters or {})), where, join)
     if exclude_deleted:
         query = query.filter(*_not_deleted(model))
     for relationship in populate:
@@ -54,9 +78,10 @@ def simple_list(
     model: type[ModelT],
     filters: dict[str, Any] | None = None,
     populate: Sequence[str] = (),
+    where: Where = (),
+    join: Joins = (),
 ) -> list[ModelT]:
-    query = _base_query(db, model, filters, populate, exclude_deleted=False)
-    return query.all()
+    return _base_query(db, model, filters, populate, False, where, join).all()
 
 
 def create(db: Session, model: type[ModelT], data: dict[str, Any]) -> ModelT:
@@ -72,15 +97,14 @@ def is_unique(db: Session, model: type[Any], unique_field: dict[str, Any]) -> bo
 
 
 def count_items(
-    db: Session, model: type[Any], filters: dict[str, Any] | None = None
+    db: Session,
+    model: type[Any],
+    filters: dict[str, Any] | None = None,
+    where: Where = (),
+    join: Joins = (),
 ) -> int:
-    return (
-        db.query(func.count())
-        .select_from(model)
-        .filter_by(**(filters or {}))
-        .filter(*_not_deleted(model))
-        .scalar()
-    )
+    query = db.query(func.count()).select_from(model).filter_by(**(filters or {}))
+    return _apply(query, where, join).filter(*_not_deleted(model)).scalar()
 
 
 def fetch(
@@ -92,13 +116,17 @@ def fetch(
     sort_type: Literal["asc", "desc"] = "desc",
     limit: int | None = None,
     skip: int = 0,
+    where: Where = (),
+    order_by: Sequence[Any] | None = None,
+    join: Joins = (),
 ) -> list[ModelT]:
-    query = _base_query(db, model, filters, populate, exclude_deleted=True)
+    query = _base_query(db, model, filters, populate, True, where, join)
     if hasattr(model, "password"):
         query = query.options(defer(model.password))
-    column = getattr(model, sort_by)
-    order = column.desc() if sort_type == "desc" else column.asc()
-    return query.order_by(order).offset(skip).limit(limit).all()
+    if order_by is None:
+        column = getattr(model, sort_by)
+        order_by = [column.desc() if sort_type == "desc" else column.asc()]
+    return query.order_by(*order_by).offset(skip).limit(limit).all()
 
 
 def fetch_one(
@@ -106,9 +134,10 @@ def fetch_one(
     model: type[ModelT],
     filters: dict[str, Any] | None = None,
     populate: Sequence[str] = (),
+    where: Where = (),
+    join: Joins = (),
 ) -> ModelT | None:
-    query = _base_query(db, model, filters, populate, exclude_deleted=True)
-    return query.first()
+    return _base_query(db, model, filters, populate, True, where, join).first()
 
 
 def update(

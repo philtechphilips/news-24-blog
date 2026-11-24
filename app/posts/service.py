@@ -1,7 +1,7 @@
 from uuid import UUID
 
-from sqlalchemy import case, or_
-from sqlalchemy.orm import Query, Session
+from sqlalchemy import ColumnElement, case, or_, select
+from sqlalchemy.orm import Session
 
 from app.categories.models import Categories
 from app.core import crud
@@ -32,38 +32,26 @@ def _like(text: str) -> str:
     return f"%{escaped}%"
 
 
-def _published_query(
-    db: Session, category_id: UUID | None, writer_id: UUID | None, q: str | None
-) -> tuple[Query[Posts], list]:
-    """The filtered query for published posts, and the order to list them in."""
-    query = db.query(Posts).filter(Posts.is_published.is_(True))
-    if category_id:
-        query = query.filter(Posts.category_id == category_id)
-    if writer_id:
-        query = query.filter(Posts.writer_id == writer_id)
-
-    order = [Posts.created_at.desc()]
+def _search(q: str | None) -> tuple[list[ColumnElement[bool]], list]:
     words = (q or "").split()
-    if words:
-        query = query.outerjoin(Categories, Posts.category_id == Categories.id)
-        for word in words:
-            pattern = _like(word)
-            query = query.filter(
-                or_(
-                    *(
-                        column.ilike(pattern, escape="\\")
-                        for column in (
-                            Posts.title,
-                            Posts.excerpt,
-                            Posts.body,
-                            Categories.name,
-                        )
-                    )
-                )
-            )
-        in_title = Posts.title.ilike(_like(" ".join(words)), escape="\\")
-        order.insert(0, case((in_title, 0), else_=1))
-    return query, order
+    order = [Posts.created_at.desc()]
+    if not words:
+        return [], order
+
+    def matches(word: str) -> ColumnElement[bool]:
+        pattern = _like(word)
+        in_category = select(Categories.id).where(
+            Categories.name.ilike(pattern, escape="\\")
+        )
+        return or_(
+            Posts.title.ilike(pattern, escape="\\"),
+            Posts.excerpt.ilike(pattern, escape="\\"),
+            Posts.body.ilike(pattern, escape="\\"),
+            Posts.category_id.in_(in_category),
+        )
+
+    in_title = Posts.title.ilike(_like(" ".join(words)), escape="\\")
+    return [matches(word) for word in words], [case((in_title, 0), else_=1), *order]
 
 
 def list_published(
@@ -75,11 +63,17 @@ def list_published(
     skip: int = 0,
 ) -> tuple[list[Posts], int]:
     """One page of published posts, newest first, and how many match in total.
-    With `q`, only posts where every word appears in the title, excerpt, body
-    or category name; title matches come first."""
-    query, order = _published_query(db, category_id, writer_id, q)
-    total = query.count()
-    return query.order_by(*order).offset(skip).limit(limit).all(), total
+    `q` searches them (see _search)."""
+    filters: dict = {"is_published": True}
+    if category_id:
+        filters["category_id"] = category_id
+    if writer_id:
+        filters["writer_id"] = writer_id
+    where, order = _search(q)
+    posts = crud.fetch(
+        db, Posts, filters, where=where, order_by=order, limit=limit, skip=skip
+    )
+    return posts, crud.count_items(db, Posts, filters, where=where)
 
 
 def list_all(db: Session, limit: int = 100, skip: int = 0) -> list[Posts]:
