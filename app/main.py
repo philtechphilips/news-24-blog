@@ -24,7 +24,7 @@ async def unhandled_error(request: Request, exc: Exception) -> JSONResponse:
     """Any error a route didn't handle (e.g. the database is down) becomes a JSON
     500. HTTPExceptions like 404 and 409 never reach here, and the traceback is
     still logged by the server."""
-    return JSONResponse(status_code=500, content={"detail": "Internal server error"})
+    return JSONResponse(status_code=500, content={"error": "Internal server error"})
 
 
 app.include_router(auth_router)

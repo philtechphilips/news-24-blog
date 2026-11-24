@@ -17,7 +17,7 @@ def test_unhandled_errors_return_json_500():
         app.dependency_overrides.clear()
 
     assert response.status_code == 500
-    assert response.json() == {"detail": "Internal server error"}
+    assert response.json() == {"error": "Internal server error"}
 
 
 def test_http_errors_are_left_alone(client):
