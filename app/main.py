@@ -18,6 +18,8 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    # Lets browser clients read the post count used for pagination.
+    expose_headers=["X-Total-Count"],
 )
 
 

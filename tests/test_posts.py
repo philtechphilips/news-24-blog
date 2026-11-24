@@ -129,3 +129,24 @@ def test_search(client, admin_headers):
 
 def test_search_query_too_long(client):
     assert client.get("/posts/", params={"q": "x" * 101}).status_code == 422
+
+
+def test_pagination_with_total_count(client, admin_headers):
+    for i in range(14):
+        create_post(
+            client, admin_headers, title=f"Story number {i:02d}", is_published=True
+        )
+    create_post(client, admin_headers, title="Unpublished story")
+
+    first = client.get("/posts/", params={"limit": 12})
+    second = client.get("/posts/", params={"limit": 12, "skip": 12})
+
+    assert first.headers["x-total-count"] == "14"  # drafts don't count
+    assert len(first.json()) == 12
+    assert len(second.json()) == 2
+    titles = {p["title"] for p in first.json() + second.json()}
+    assert len(titles) == 14  # no post on two pages
+
+    # The count follows the filters, e.g. a search
+    searched = client.get("/posts/", params={"q": "number 1", "limit": 1})
+    assert searched.headers["x-total-count"] == "5"  # 01, 10, 11, 12, 13

@@ -1,7 +1,7 @@
 from typing import Annotated
 from uuid import UUID
 
-from fastapi import APIRouter, HTTPException, Query, status
+from fastapi import APIRouter, HTTPException, Query, Response, status
 
 from app.auth.dependencies import AdminUser
 from app.core.database import DbSession
@@ -26,8 +26,25 @@ def _get_or_404(db: DbSession, post_id: UUID) -> Posts:
     return post
 
 
-@router.get("/", response_model=list[PostResponse])
+TOTAL_COUNT = "X-Total-Count"
+
+
+@router.get(
+    "/",
+    response_model=list[PostResponse],
+    responses={
+        200: {
+            "headers": {
+                TOTAL_COUNT: {
+                    "description": "How many posts match, across all pages",
+                    "schema": {"type": "integer"},
+                }
+            }
+        }
+    },
+)
 def list_posts(
+    response: Response,
     db: DbSession,
     category_id: UUID | None = None,
     writer_id: UUID | None = None,
@@ -36,8 +53,11 @@ def list_posts(
     skip: Skip = 0,
 ):
     """Published posts, newest first. Anyone can read these. `q` searches the
-    title, excerpt, body and category name."""
-    return service.list_published(db, category_id, writer_id, q, limit, skip)
+    title, excerpt, body and category name. Page through with `limit` and
+    `skip`; the X-Total-Count header says how many match in total."""
+    posts, total = service.list_published(db, category_id, writer_id, q, limit, skip)
+    response.headers[TOTAL_COUNT] = str(total)
+    return posts
 
 
 # Declared before /{post_id} so "all" isn't parsed as an id.

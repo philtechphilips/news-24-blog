@@ -1,7 +1,7 @@
 from uuid import UUID
 
 from sqlalchemy import case, or_
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Query, Session
 
 from app.categories.models import Categories
 from app.core import crud
@@ -32,16 +32,10 @@ def _like(text: str) -> str:
     return f"%{escaped}%"
 
 
-def list_published(
-    db: Session,
-    category_id: UUID | None = None,
-    writer_id: UUID | None = None,
-    q: str | None = None,
-    limit: int = 20,
-    skip: int = 0,
-) -> list[Posts]:
-    """Published posts, newest first. With `q`, only posts where every word
-    appears in the title, excerpt, body or category name; title matches first."""
+def _published_query(
+    db: Session, category_id: UUID | None, writer_id: UUID | None, q: str | None
+) -> tuple[Query[Posts], list]:
+    """The filtered query for published posts, and the order to list them in."""
     query = db.query(Posts).filter(Posts.is_published.is_(True))
     if category_id:
         query = query.filter(Posts.category_id == category_id)
@@ -69,8 +63,23 @@ def list_published(
             )
         in_title = Posts.title.ilike(_like(" ".join(words)), escape="\\")
         order.insert(0, case((in_title, 0), else_=1))
+    return query, order
 
-    return query.order_by(*order).offset(skip).limit(limit).all()
+
+def list_published(
+    db: Session,
+    category_id: UUID | None = None,
+    writer_id: UUID | None = None,
+    q: str | None = None,
+    limit: int = 20,
+    skip: int = 0,
+) -> tuple[list[Posts], int]:
+    """One page of published posts, newest first, and how many match in total.
+    With `q`, only posts where every word appears in the title, excerpt, body
+    or category name; title matches come first."""
+    query, order = _published_query(db, category_id, writer_id, q)
+    total = query.count()
+    return query.order_by(*order).offset(skip).limit(limit).all(), total
 
 
 def list_all(db: Session, limit: int = 100, skip: int = 0) -> list[Posts]:
