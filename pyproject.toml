@@ -42,6 +42,7 @@ check = { sequence = [
 ], default_item_type = "cmd", help = "Lint, format check and tests without changing files (for CI)" }
 migrate = { cmd = "alembic upgrade head", help = "Apply all pending migrations" }
 downgrade = { cmd = "alembic downgrade -1", help = "Undo the last migration" }
+seed = { cmd = "python -m app.seed", help = "Load the sample categories and posts (safe to re-run)" }
 createadmin = { cmd = "python -m app.users.create_admin", help = "Create an admin, or promote a user: poe createadmin <email>" }
 clean = { shell = "find . -name __pycache__ -not -path './.venv/*' -prune -exec rm -rf {} + && rm -rf .pytest_cache .ruff_cache", help = "Delete __pycache__ and tool caches" }
 

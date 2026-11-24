@@ -1,0 +1,215 @@
+{
+  "categories": [
+    "Economy",
+    "Style",
+    "Art",
+    "World News",
+    "Technology",
+    "Sports",
+    "Science",
+    "Politics",
+    "Health",
+    "Entertainment",
+    "Design"
+  ],
+  "posts": [
+    {
+      "title": "Exploring the Intricacies of Markets, Money, and Global Economies",
+      "slug": "markets-money-and-global-economies",
+      "excerpt": "Interest rates, supply chains and a shifting balance of trade are reshaping how money moves around the world. Here is what it means for you.",
+      "body": "The global economy rarely moves in a straight line, but the past year has been unusually tangled. Central banks have tried to cool inflation without stalling growth, supply chains have been redrawn, and currencies have swung on every new data release.\n\nFor households, the effects show up in mortgage payments, grocery bills and job listings. For businesses, they show up in the cost of borrowing and the price of every part they import.\n\n## Why interest rates still matter most\n\nInterest rates are the lever central banks pull to speed up or slow down an economy. When rates rise, borrowing becomes more expensive, spending slows and, eventually, prices stop climbing as fast. When rates fall, the opposite happens.\n\n> Every rate decision is a bet on where the economy will be in eighteen months, not where it is today.\n> — A former central bank economist\n\n## Trade is being rewired\n\nCompanies that once chased the lowest cost are now paying for resilience. Factories are moving closer to customers, and suppliers are being split across several countries so that a single disruption cannot stop production.\n\n- Nearshoring is bringing manufacturing closer to major markets.\n- Companies are holding larger inventories as a buffer.\n- New trade agreements are focusing on critical minerals and energy.\n\nNone of this happens overnight, but together these shifts will shape prices, wages and opportunities for years to come.",
+      "featured_image": "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1600&q=80",
+      "category": "Economy",
+      "tags": [],
+      "is_published": true,
+      "date": "2026-10-21"
+    },
+    {
+      "title": "A Journey Through Colors, Textures, and Trends",
+      "slug": "journey-through-colors-textures-and-trends",
+      "excerpt": "This season's collections trade minimalism for rich texture and bold colour. We look at the designers leading the change.",
+      "body": "After years of quiet neutrals, fashion is getting louder. Runways this season were full of saturated colour, layered fabrics and pieces that ask to be touched.\n\n## Texture is the new statement\n\nBouclé, crushed velvet and hand-finished knits appeared across collections. Designers say texture gives a garment personality without relying on logos.\n\n> People want clothes that feel like something, not just clothes that look like something in a photo.\n> — An independent designer in Paris\n\n## Colour with intention\n\nInstead of head-to-toe brights, stylists are pairing one strong colour with natural tones. Deep reds, cobalt and olive green were the standouts.\n\n- Pair a textured jacket with simple basics.\n- Choose one bold colour and let it lead.\n- Invest in natural fabrics that age well.",
+      "featured_image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1600&q=80",
+      "category": "Style",
+      "tags": [],
+      "is_published": true,
+      "date": "2026-10-20"
+    },
+    {
+      "title": "Inspiring Creativity and Fostering Artistic Expression",
+      "slug": "inspiring-creativity-and-artistic-expression",
+      "excerpt": "Community studios are opening their doors to first-time artists. Their founders explain why creativity belongs to everyone.",
+      "body": "In a converted warehouse, a retired nurse is learning to paint for the first time, next to a teenager working on her portfolio. Community studios like this one are spreading in cities around the world.\n\n## Making art accessible\n\nThe idea is simple: provide space, materials and a little guidance, and let people make things. Most studios charge on a sliding scale or not at all.\n\n> Nobody walks in thinking they are an artist. Most of them walk out thinking they might be.\n> — A studio founder\n\nResearch backs up what studio founders see every week: regular creative practice is linked to lower stress, stronger social ties and greater confidence.\n\n## How to get started\n\n- Look for open studio nights at local galleries and libraries.\n- Start small with a sketchbook and ten minutes a day.\n- Share your work with a friend; feedback builds momentum.",
+      "featured_image": "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=1600&q=80",
+      "category": "Art",
+      "tags": [],
+      "is_published": true,
+      "date": "2026-10-19"
+    },
+    {
+      "title": "Global leaders unite to address climate crisis at COP26",
+      "slug": "global-leaders-unite-on-climate-crisis",
+      "excerpt": "Amid escalating tensions and humanitarian crises in various conflict hotspots around the world, leaders convened to address the climate emergency.",
+      "body": "Delegates from nearly 200 countries gathered this week for climate talks that many described as a last chance to keep warming within safe limits.\n\nNegotiations focused on three areas: faster cuts to emissions, money for countries already facing climate damage, and a timeline for phasing down coal.\n\n## What was agreed\n\n- New national targets for cutting emissions by 2035.\n- An expanded fund to help vulnerable countries adapt.\n- Commitments to cut methane from oil and gas production.\n\n> The agreements are a floor, not a ceiling. What matters now is delivery.\n> — A negotiator for a small island nation\n\nCampaigners welcomed the progress but warned that pledges have fallen short before. The next review of national plans is due in two years.",
+      "featured_image": "https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1600&q=80",
+      "category": "World News",
+      "tags": [],
+      "is_published": true,
+      "date": "2026-10-18"
+    },
+    {
+      "title": "Cybersecurity experts warn of increased threats",
+      "slug": "cybersecurity-experts-warn-of-increased-threats",
+      "excerpt": "This warning serves as a stark reminder of the critical imperative to bolster cybersecurity frameworks and stay vigilant against attacks.",
+      "body": "Security researchers are reporting a sharp rise in attacks on businesses of every size, from ransomware gangs to highly targeted phishing campaigns.\n\n## Smaller companies are in the firing line\n\nAttackers increasingly target smaller firms, which often lack dedicated security teams but hold valuable data or provide access to larger partners.\n\n> Most breaches still start with a single click on a convincing email.\n> — A security analyst\n\n## Simple steps that help\n\n- Turn on multi-factor authentication for every account.\n- Keep software and devices updated.\n- Back up important data and test that you can restore it.\n- Train staff to recognise phishing attempts.",
+      "featured_image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1600&q=80",
+      "category": "Technology",
+      "tags": [],
+      "is_published": true,
+      "date": "2026-10-17"
+    },
+    {
+      "title": "Athlete achieves historic win at world championships",
+      "slug": "athlete-achieves-historic-win-at-world-championships",
+      "excerpt": "This landmark achievement not only signifies exceptional prowess and dedication but also stands as a testament to years of work.",
+      "body": "In front of a packed stadium, a 22-year-old sprinter crossed the line first to claim a championship title that has eluded their country for half a century.\n\nThe win capped a remarkable season that began with an injury and ended with a personal best in the final.\n\n## Years in the making\n\nCoaches point to a patient training plan, a focus on recovery and a support team that included sports scientists, nutritionists and psychologists.\n\n> I've dreamed about this race since I was ten. Tonight it finally felt real.\n> — The new world champion",
+      "featured_image": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1600&q=80",
+      "category": "Sports",
+      "tags": [],
+      "is_published": true,
+      "date": "2026-10-16"
+    },
+    {
+      "title": "Chemical currents breaking news in chemistry and materials science",
+      "slug": "chemical-currents-breaking-news-in-chemistry",
+      "excerpt": "From unveiling novel compounds and catalysts to pioneering advances in nanotechnology and biomaterials, the breaking news in the lab.",
+      "body": "Materials scientists have had a busy year. New catalysts promise cheaper clean fuels, and a family of lightweight materials could make batteries safer.\n\n## Highlights from the lab\n\n- A catalyst that splits water using far less precious metal.\n- Biodegradable plastics made from agricultural waste.\n- Solid-state electrolytes that reduce battery fire risk.\n\nMany of these breakthroughs are still years from products, but researchers say the pace of discovery is accelerating thanks to automated labs and machine learning.",
+      "featured_image": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1600&q=80",
+      "category": "Science",
+      "tags": [],
+      "is_published": true,
+      "date": "2026-10-15"
+    },
+    {
+      "title": "Tech giants unveil plans for next generation AI assistants",
+      "slug": "tech-giants-unveil-next-generation-ai-assistants",
+      "excerpt": "The biggest names in technology showed off assistants that can plan, write and take action on your behalf.",
+      "body": "AI assistants are moving beyond answering questions. The latest announcements promise tools that book travel, manage inboxes and write code with little supervision.\n\n## What's new\n\nThe new assistants can work across apps, remember preferences and break large tasks into steps. Companies say safeguards will ask for confirmation before anything important happens.\n\n> The question is no longer whether these tools are useful, but how much we are willing to let them do.\n> — A technology researcher\n\nPrivacy advocates are calling for clear rules on what data assistants can access and how long it is kept.",
+      "featured_image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1600&q=80",
+      "category": "Technology",
+      "tags": [],
+      "is_published": true,
+      "date": "2026-10-21"
+    },
+    {
+      "title": "Government faces backlash over proposed tax reform legislation",
+      "slug": "government-faces-backlash-over-tax-reform",
+      "excerpt": "A proposed overhaul of income and property taxes has drawn criticism from business groups and unions alike.",
+      "body": "The government's tax reform bill was meant to simplify the system. Instead it has united critics from very different corners.\n\nBusiness groups say changes to deductions will raise costs, while unions argue that the new brackets favour higher earners.\n\n## What happens next\n\nThe bill goes to committee next month, where amendments are expected. Ministers say they are open to changes but insist the core reforms will stay.",
+      "featured_image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1600&q=80",
+      "category": "Politics",
+      "tags": [],
+      "is_published": true,
+      "date": "2026-10-20"
+    },
+    {
+      "title": "Community health initiative launches campaign to combat childhood obesity",
+      "slug": "community-health-campaign-childhood-obesity",
+      "excerpt": "Schools, clinics and local sports clubs are joining forces on a campaign to help children stay active and eat well.",
+      "body": "A new community campaign aims to make healthy habits easier for families, with free after-school sports, cooking classes and check-ups.\n\n- Free sports sessions three afternoons a week.\n- Family cooking classes at community centres.\n- Healthier menus in participating school canteens.\n\nOrganisers say the focus is on fun and access rather than weight, and that early results from pilot schools are encouraging.",
+      "featured_image": "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1600&q=80",
+      "category": "Health",
+      "tags": [],
+      "is_published": true,
+      "date": "2026-10-19"
+    },
+    {
+      "title": "Candidates gear up for highly contested race",
+      "slug": "candidates-gear-up-for-contested-race",
+      "excerpt": "With polls neck and neck, campaigns are focusing on turnout and a handful of undecided districts.",
+      "body": "With weeks to go before voting day, the race remains too close to call. Both campaigns are pouring resources into a few districts where undecided voters could decide the outcome.\n\n## The issues voters care about\n\n- Cost of living\n- Housing\n- Healthcare\n- Jobs\n\nTelevised debates next week are expected to be decisive, and turnout operations are already in full swing.",
+      "featured_image": "https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=1600&q=80",
+      "category": "Politics",
+      "tags": [],
+      "is_published": true,
+      "date": "2026-10-18"
+    },
+    {
+      "title": "Entertainment industry mourns loss of iconic actor",
+      "slug": "entertainment-industry-mourns-iconic-actor",
+      "excerpt": "Tributes poured in from colleagues and fans for a performer whose career spanned five decades.",
+      "body": "Film and theatre colleagues remembered a performer known for generosity on set and unforgettable roles on screen.\n\nCinemas in several cities have announced retrospective screenings, and a public memorial is planned for next month.\n\n> They made every scene partner better. That was their real gift.\n> — A longtime co-star",
+      "featured_image": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1600&q=80",
+      "category": "Entertainment",
+      "tags": [],
+      "is_published": true,
+      "date": "2026-10-17"
+    },
+    {
+      "title": "How to build a scalable design system from scratch",
+      "slug": "build-a-scalable-design-system-from-scratch",
+      "excerpt": "Start small, document as you go and treat your design system like a product. A practical guide for growing teams.",
+      "body": "A design system is a shared set of decisions: colours, type, spacing and components that every designer and developer can rely on. Done well, it makes teams faster and products more consistent.\n\n## Start with tokens\n\nTokens are named values such as colour-brand or space-4. They are the smallest building blocks and the easiest to share between design tools and code.\n\n## Build the components you actually use\n\nAudit your product and start with the components that appear most often: buttons, inputs, cards. Resist the urge to design for every possible future need.\n\n- Define tokens for colour, type, spacing and radius.\n- Build five core components and document them.\n- Publish a changelog so teams know what changed.\n- Assign owners and a regular review cadence.\n\n> A design system isn't a project, it's a product serving products.\n> — Nathan Curtis",
+      "featured_image": "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1600&q=80",
+      "category": "Design",
+      "tags": [],
+      "is_published": true,
+      "date": "2026-10-10"
+    },
+    {
+      "title": "The art of balancing creativity and user experience in design",
+      "slug": "balancing-creativity-and-user-experience",
+      "excerpt": "Bold ideas make products memorable, but clarity makes them usable. Here's how to have both.",
+      "body": "Every designer has felt the tension between doing something new and doing something people instantly understand. The best work finds room for both.\n\n## Be conventional where it counts\n\nNavigation, forms and checkout flows benefit from familiarity. Save your creative energy for moments that define your brand: onboarding, empty states and illustrations.\n\n- Test bold ideas with five users before shipping.\n- Keep primary actions obvious and consistent.\n- Use motion to guide attention, not to decorate.",
+      "featured_image": "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=1600&q=80",
+      "category": "Design",
+      "tags": [],
+      "is_published": true,
+      "date": "2026-10-10"
+    },
+    {
+      "title": "The science behind effective call-to-action buttons",
+      "slug": "science-behind-effective-call-to-action-buttons",
+      "excerpt": "Colour, copy and placement all affect whether people click. What the research says about buttons that convert.",
+      "body": "A call-to-action button has one job: to make the next step obvious. Small details can make a big difference to how well it does that job.\n\n## Write the outcome, not the action\n\n'Start my free trial' tends to outperform 'Submit' because it tells people what they get. Specific, first-person copy reduces hesitation.\n\n## Contrast beats colour\n\nThere is no magic button colour. What matters is that the button stands out from everything around it and is large enough to tap comfortably.",
+      "featured_image": "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=1600&q=80",
+      "category": "Design",
+      "tags": [],
+      "is_published": true,
+      "date": "2026-10-10"
+    },
+    {
+      "title": "10 must-have features for a modern portfolio website",
+      "slug": "must-have-features-for-a-modern-portfolio",
+      "excerpt": "From case studies to fast load times, the features that help your portfolio stand out to clients and hiring managers.",
+      "body": "Your portfolio is often the first impression you make. These are the features that consistently help designers and developers get noticed.\n\n- A clear one-line introduction\n- Three to five in-depth case studies\n- Your process, not just final screens\n- Measurable results where possible\n- Fast load times\n- Mobile-friendly layouts\n- An easy way to contact you\n- Testimonials from clients or colleagues\n- A short about page with a photo\n- Links to your writing or talks\n\nAbove all, keep it current. A portfolio with three great recent projects beats one with twenty old ones.",
+      "featured_image": "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1600&q=80",
+      "category": "Design",
+      "tags": [],
+      "is_published": true,
+      "date": "2026-10-10"
+    },
+    {
+      "title": "How to create a seamless user journey on your website",
+      "slug": "create-a-seamless-user-journey",
+      "excerpt": "Map the path your visitors take, remove the friction and guide them to what they came for.",
+      "body": "A user journey is every step someone takes from discovering your site to reaching their goal. Mapping it reveals where people get stuck.\n\n## Map it with real data\n\nCombine analytics with a handful of user interviews. Numbers tell you where people drop off; conversations tell you why.\n\n- Identify your top three user goals.\n- Walk through each journey yourself on mobile.\n- Remove one unnecessary step from each.",
+      "featured_image": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80",
+      "category": "Design",
+      "tags": [],
+      "is_published": true,
+      "date": "2026-10-10"
+    },
+    {
+      "title": "Why mobile-first design is no longer optional",
+      "slug": "why-mobile-first-design-is-no-longer-optional",
+      "excerpt": "Most of your visitors arrive on a phone. Designing for small screens first leads to better products everywhere.",
+      "body": "More than half of web traffic now comes from phones. Starting with the smallest screen forces you to prioritise what really matters.\n\n## Constraints create clarity\n\nWith limited space, every element must earn its place. The result is usually a simpler, faster experience that scales up gracefully to larger screens.\n\n- Design for thumbs: keep key actions within reach.\n- Use readable text sizes without zooming.\n- Optimise images and keep pages light.",
+      "featured_image": "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=1600&q=80",
+      "category": "Design",
+      "tags": [],
+      "is_published": true,
+      "date": "2026-10-10"
+    }
+  ]
+}
