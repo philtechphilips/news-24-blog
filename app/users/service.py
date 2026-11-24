@@ -1,3 +1,5 @@
+import uuid
+
 from sqlalchemy.orm import Session
 
 from app.core import crud
@@ -6,7 +8,7 @@ from app.users.models import Role, User
 from app.users.schemas import UserCreate
 
 
-def get_user(db: Session, user_id: int) -> User | None:
+def get_user(db: Session, user_id: uuid.UUID) -> User | None:
     return crud.fetch_one(db, User, {"id": user_id})
 
 

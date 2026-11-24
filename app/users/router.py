@@ -1,3 +1,4 @@
+import uuid
 from typing import Annotated
 
 from fastapi import APIRouter, HTTPException, Query, status
@@ -39,7 +40,7 @@ def list_users(
 
 
 @router.get("/{user_id}", response_model=UserResponse)
-def get_user(user_id: int, db: DbSession, current_user: CurrentUser):
+def get_user(user_id: uuid.UUID, db: DbSession, current_user: CurrentUser):
     if current_user.id != user_id and current_user.role != Role.ADMIN:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
@@ -55,7 +56,7 @@ def get_user(user_id: int, db: DbSession, current_user: CurrentUser):
 
 
 @router.patch("/{user_id}/role", response_model=UserResponse)
-def update_role(user_id: int, body: RoleUpdate, db: DbSession, admin: AdminUser):
+def update_role(user_id: uuid.UUID, body: RoleUpdate, db: DbSession, admin: AdminUser):
     if user_id == admin.id:
         # Stops the last admin from locking everyone out by demoting themselves.
         raise HTTPException(

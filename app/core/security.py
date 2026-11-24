@@ -1,5 +1,6 @@
 import hashlib
 import secrets
+import uuid
 from datetime import UTC, datetime, timedelta
 from typing import Any
 
@@ -32,7 +33,7 @@ def verify_password(
 
 
 def create_access_token(
-    subject: str | int, expires_delta: timedelta | None = None
+    subject: str | uuid.UUID, expires_delta: timedelta | None = None
 ) -> str:
     expire = datetime.now(UTC) + (
         expires_delta or timedelta(minutes=settings.access_token_expire_minutes)

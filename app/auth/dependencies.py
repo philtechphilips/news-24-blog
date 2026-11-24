@@ -1,3 +1,4 @@
+import uuid
 from collections.abc import Callable
 from typing import Annotated
 
@@ -22,7 +23,7 @@ def get_current_user(
         headers={"WWW-Authenticate": "Bearer"},
     )
     try:
-        user_id = int(decode_access_token(token)["sub"])
+        user_id = uuid.UUID(decode_access_token(token)["sub"])
     except (jwt.InvalidTokenError, KeyError, ValueError):
         raise credentials_exception from None
 
