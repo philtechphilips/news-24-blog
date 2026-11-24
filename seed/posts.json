@@ -22,7 +22,8 @@
       "category": "Economy",
       "tags": [],
       "is_published": true,
-      "date": "2026-10-21"
+      "date": "2026-10-21",
+      "writer": "kristin-watson"
     },
     {
       "title": "A Journey Through Colors, Textures, and Trends",
@@ -33,7 +34,8 @@
       "category": "Style",
       "tags": [],
       "is_published": true,
-      "date": "2026-10-20"
+      "date": "2026-10-20",
+      "writer": "jenny-wilson"
     },
     {
       "title": "Inspiring Creativity and Fostering Artistic Expression",
@@ -44,7 +46,8 @@
       "category": "Art",
       "tags": [],
       "is_published": true,
-      "date": "2026-10-19"
+      "date": "2026-10-19",
+      "writer": "leslie-aria"
     },
     {
       "title": "Global leaders unite to address climate crisis at COP26",
@@ -55,7 +58,8 @@
       "category": "World News",
       "tags": [],
       "is_published": true,
-      "date": "2026-10-18"
+      "date": "2026-10-18",
+      "writer": "marvin-roy"
     },
     {
       "title": "Cybersecurity experts warn of increased threats",
@@ -66,7 +70,8 @@
       "category": "Technology",
       "tags": [],
       "is_published": true,
-      "date": "2026-10-17"
+      "date": "2026-10-17",
+      "writer": "daniel-okafor"
     },
     {
       "title": "Athlete achieves historic win at world championships",
@@ -77,7 +82,8 @@
       "category": "Sports",
       "tags": [],
       "is_published": true,
-      "date": "2026-10-16"
+      "date": "2026-10-16",
+      "writer": "robert-fox"
     },
     {
       "title": "Chemical currents breaking news in chemistry and materials science",
@@ -88,7 +94,8 @@
       "category": "Science",
       "tags": [],
       "is_published": true,
-      "date": "2026-10-15"
+      "date": "2026-10-15",
+      "writer": "daniel-okafor"
     },
     {
       "title": "Tech giants unveil plans for next generation AI assistants",
@@ -99,7 +106,8 @@
       "category": "Technology",
       "tags": [],
       "is_published": true,
-      "date": "2026-10-21"
+      "date": "2026-10-21",
+      "writer": "daniel-okafor"
     },
     {
       "title": "Government faces backlash over proposed tax reform legislation",
@@ -110,7 +118,8 @@
       "category": "Politics",
       "tags": [],
       "is_published": true,
-      "date": "2026-10-20"
+      "date": "2026-10-20",
+      "writer": "marvin-roy"
     },
     {
       "title": "Community health initiative launches campaign to combat childhood obesity",
@@ -121,7 +130,8 @@
       "category": "Health",
       "tags": [],
       "is_published": true,
-      "date": "2026-10-19"
+      "date": "2026-10-19",
+      "writer": "robert-fox"
     },
     {
       "title": "Candidates gear up for highly contested race",
@@ -132,7 +142,8 @@
       "category": "Politics",
       "tags": [],
       "is_published": true,
-      "date": "2026-10-18"
+      "date": "2026-10-18",
+      "writer": "marvin-roy"
     },
     {
       "title": "Entertainment industry mourns loss of iconic actor",
@@ -143,7 +154,8 @@
       "category": "Entertainment",
       "tags": [],
       "is_published": true,
-      "date": "2026-10-17"
+      "date": "2026-10-17",
+      "writer": "leslie-aria"
     },
     {
       "title": "How to build a scalable design system from scratch",
@@ -154,7 +166,8 @@
       "category": "Design",
       "tags": [],
       "is_published": true,
-      "date": "2026-10-10"
+      "date": "2026-10-10",
+      "writer": "amara-chen"
     },
     {
       "title": "The art of balancing creativity and user experience in design",
@@ -165,7 +178,8 @@
       "category": "Design",
       "tags": [],
       "is_published": true,
-      "date": "2026-10-10"
+      "date": "2026-10-10",
+      "writer": "amara-chen"
     },
     {
       "title": "The science behind effective call-to-action buttons",
@@ -176,7 +190,8 @@
       "category": "Design",
       "tags": [],
       "is_published": true,
-      "date": "2026-10-10"
+      "date": "2026-10-10",
+      "writer": "amara-chen"
     },
     {
       "title": "10 must-have features for a modern portfolio website",
@@ -187,7 +202,8 @@
       "category": "Design",
       "tags": [],
       "is_published": true,
-      "date": "2026-10-10"
+      "date": "2026-10-10",
+      "writer": "hawkings-alex"
     },
     {
       "title": "How to create a seamless user journey on your website",
@@ -198,7 +214,8 @@
       "category": "Design",
       "tags": [],
       "is_published": true,
-      "date": "2026-10-10"
+      "date": "2026-10-10",
+      "writer": "hawkings-alex"
     },
     {
       "title": "Why mobile-first design is no longer optional",
@@ -209,7 +226,8 @@
       "category": "Design",
       "tags": [],
       "is_published": true,
-      "date": "2026-10-10"
+      "date": "2026-10-10",
+      "writer": "amara-chen"
     }
   ]
 }

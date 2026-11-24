@@ -1,0 +1,124 @@
+{
+  "podcasts": [
+    {
+      "slug": "social-media-power",
+      "title": "Social Media Power: Amplifying Your Blog's Reach",
+      "description": "Learn how to leverage social media platforms to increase blog traffic and engagement.",
+      "cover_image": "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?auto=format&fit=crop&w=1600&q=80",
+      "host": "hawkings-alex",
+      "date": "2026-10-14",
+      "duration_minutes": 38,
+      "topics": [
+        "Social media",
+        "Audience growth",
+        "Content strategy"
+      ],
+      "notes": [
+        "Choosing the two platforms that matter for your audience.",
+        "Turning one article into a week of social posts.",
+        "How to measure what's actually driving readers."
+      ],
+      "is_published": true
+    },
+    {
+      "slug": "seo-mastery",
+      "title": "SEO Mastery: How to Rank Higher on Google",
+      "description": "Get expert SEO tips to improve your blog's visibility and ranking.",
+      "cover_image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
+      "host": "hawkings-alex",
+      "date": "2026-10-07",
+      "duration_minutes": 45,
+      "topics": [
+        "SEO",
+        "Keywords",
+        "Analytics"
+      ],
+      "notes": [
+        "Finding keywords your readers actually search for.",
+        "Writing titles and descriptions that earn the click.",
+        "Technical basics: speed, structure and internal links."
+      ],
+      "is_published": true
+    },
+    {
+      "slug": "monetizing-your-blog",
+      "title": "Monetizing Your Blog: Turning Passion Into Profit",
+      "description": "Explore top strategies for making money from your blog.",
+      "cover_image": "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=1600&q=80",
+      "host": "kristin-watson",
+      "date": "2026-09-30",
+      "duration_minutes": 41,
+      "topics": [
+        "Monetization",
+        "Newsletters",
+        "Sponsorships"
+      ],
+      "notes": [
+        "Ads, affiliates, memberships: which model fits your blog.",
+        "Pricing your first sponsorship.",
+        "Building a newsletter readers will pay for."
+      ],
+      "is_published": true
+    },
+    {
+      "slug": "inside-the-newsroom",
+      "title": "Inside the Newsroom: How a Story Gets Made",
+      "description": "From the first tip to publication, our editors walk through the life of a story.",
+      "cover_image": "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=1600&q=80",
+      "host": "leslie-aria",
+      "date": "2026-09-23",
+      "duration_minutes": 52,
+      "topics": [
+        "Journalism",
+        "Editing",
+        "Fact-checking"
+      ],
+      "notes": [
+        "How editors decide which stories to pursue.",
+        "Verifying sources and checking facts.",
+        "The final read before a story goes live."
+      ],
+      "is_published": true
+    },
+    {
+      "slug": "design-for-everyone",
+      "title": "Design for Everyone: Accessibility in Practice",
+      "description": "Practical ways to make websites and apps work for every reader.",
+      "cover_image": "https://images.unsplash.com/photo-1557672172-298e090bd0f1?auto=format&fit=crop&w=1600&q=80",
+      "host": "amara-chen",
+      "date": "2026-09-16",
+      "duration_minutes": 36,
+      "topics": [
+        "Accessibility",
+        "UX",
+        "Inclusive design"
+      ],
+      "notes": [
+        "Colour contrast and readable type.",
+        "Designing for keyboard and screen reader users.",
+        "Testing accessibility without special tools."
+      ],
+      "is_published": true
+    },
+    {
+      "slug": "future-of-work-with-ai",
+      "title": "The Future of Work with AI",
+      "description": "What AI assistants will change about our jobs, and what they won't.",
+      "cover_image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1600&q=80",
+      "host": "daniel-okafor",
+      "date": "2026-09-09",
+      "duration_minutes": 47,
+      "topics": [
+        "AI",
+        "Careers",
+        "Productivity"
+      ],
+      "notes": [
+        "Which tasks AI handles well today.",
+        "Skills that become more valuable, not less.",
+        "How teams are adopting AI responsibly."
+      ],
+      "is_published": true
+    }
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "writers": [
+    {
+      "slug": "kristin-watson",
+      "name": "Kristin Watson",
+      "role": "Senior Writer",
+      "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
+      "location": "New York, USA",
+      "joined": "2019-03-04",
+      "bio": [
+        "Kristin covers the global economy, from central bank decisions to the small businesses that feel them first. Before joining News 24 she spent six years on a markets desk, translating dense financial data into stories readers can act on.",
+        "She is happiest with a spreadsheet open and a source on the phone, and believes every economic story is ultimately a story about people."
+      ],
+      "beats": [
+        "Economy",
+        "Markets",
+        "Global trade"
+      ],
+      "social": {
+        "x": "https://x.com",
+        "linkedin": "https://linkedin.com"
+      }
+    },
+    {
+      "slug": "marvin-roy",
+      "name": "Marvin Roy",
+      "role": "Journalist",
+      "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80",
+      "location": "London, UK",
+      "joined": "2020-08-17",
+      "bio": [
+        "Marvin reports on world affairs and politics, with a focus on climate policy and international negotiations. He has covered summits on four continents and still keeps a notebook for every one.",
+        "His reporting has been recognised for its clarity on complex policy fights, and he hosts the occasional live Q&A with readers."
+      ],
+      "beats": [
+        "World News",
+        "Politics",
+        "Climate"
+      ],
+      "social": {
+        "x": "https://x.com",
+        "instagram": "https://instagram.com"
+      }
+    },
+    {
+      "slug": "leslie-aria",
+      "name": "Leslie Aria",
+      "role": "Publisher",
+      "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=80",
+      "location": "Lagos, Nigeria",
+      "joined": "2018-01-09",
+      "bio": [
+        "Leslie leads News 24's editorial direction and writes about art, culture and the creative economy. She founded the publication's arts desk and has commissioned hundreds of features from emerging writers.",
+        "When she is not editing, she is visiting galleries and studios in search of the next story worth telling."
+      ],
+      "beats": [
+        "Art",
+        "Culture",
+        "Creative economy"
+      ],
+      "social": {
+        "x": "https://x.com",
+        "instagram": "https://instagram.com",
+        "linkedin": "https://linkedin.com"
+      }
+    },
+    {
+      "slug": "hawkings-alex",
+      "name": "Hawkings Alex",
+      "role": "Content Writer",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80",
+      "location": "Toronto, Canada",
+      "joined": "2021-05-22",
+      "bio": [
+        "Hawkings writes about digital publishing, SEO and growing an audience online. He has helped dozens of independent blogs turn into sustainable businesses and shares what works, and what doesn't, in plain language.",
+        "He also co-hosts the News 24 podcast on building a voice on the web."
+      ],
+      "beats": [
+        "Blogging",
+        "SEO",
+        "Social media"
+      ],
+      "social": {
+        "x": "https://x.com",
+        "linkedin": "https://linkedin.com"
+      }
+    },
+    {
+      "slug": "jenny-wilson",
+      "name": "Jenny Wilson",
+      "role": "Style Editor",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80",
+      "location": "Paris, France",
+      "joined": "2020-02-11",
+      "bio": [
+        "Jenny edits the Style section, covering fashion weeks, independent designers and the business of what we wear.",
+        "She is particularly interested in sustainable fashion and the makers rethinking how clothes are produced."
+      ],
+      "beats": [
+        "Style",
+        "Fashion",
+        "Sustainability"
+      ],
+      "social": {
+        "instagram": "https://instagram.com"
+      }
+    },
+    {
+      "slug": "daniel-okafor",
+      "name": "Daniel Okafor",
+      "role": "Tech Correspondent",
+      "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80",
+      "location": "San Francisco, USA",
+      "joined": "2022-04-03",
+      "bio": [
+        "Daniel covers artificial intelligence, cybersecurity and the companies building the next generation of software.",
+        "A former engineer, he likes to read the documentation before the press release."
+      ],
+      "beats": [
+        "Technology",
+        "AI",
+        "Security"
+      ],
+      "social": {
+        "x": "https://x.com",
+        "linkedin": "https://linkedin.com"
+      }
+    },
+    {
+      "slug": "amara-chen",
+      "name": "Amara Chen",
+      "role": "Design Writer",
+      "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
+      "location": "Singapore",
+      "joined": "2021-10-28",
+      "bio": [
+        "Amara writes about product design, UX and design systems. She spent eight years designing apps used by millions before switching to writing about the craft full time.",
+        "Her guides are known for being practical: every article ends with something you can try the same day."
+      ],
+      "beats": [
+        "Design",
+        "UX",
+        "Design systems"
+      ],
+      "social": {
+        "x": "https://x.com",
+        "instagram": "https://instagram.com"
+      }
+    },
+    {
+      "slug": "robert-fox",
+      "name": "Robert Fox",
+      "role": "Sports Reporter",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80",
+      "location": "Melbourne, Australia",
+      "joined": "2019-11-15",
+      "bio": [
+        "Robert covers athletics, football and the science of performance. He has reported from three Olympic Games and countless muddy touchlines.",
+        "He also writes about health and fitness for everyday athletes."
+      ],
+      "beats": [
+        "Sports",
+        "Athletics",
+        "Health"
+      ],
+      "social": {
+        "x": "https://x.com"
+      }
+    }
+  ]
+}
