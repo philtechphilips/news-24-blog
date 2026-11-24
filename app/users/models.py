@@ -1,7 +1,8 @@
+import uuid
 from datetime import datetime
 from enum import StrEnum
 
-from sqlalchemy import TIMESTAMP, Enum, func
+from sqlalchemy import TIMESTAMP, Enum, String, func
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.core.database import Base
@@ -15,9 +16,11 @@ class Role(StrEnum):
 class User(Base):
     __tablename__ = "users"
 
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[uuid.UUID] = mapped_column(primary_key=True, default=uuid.uuid4)
     email: Mapped[str] = mapped_column(unique=True)
     password: Mapped[str]
+    # Shown on comments. Optional at sign-up; readers can set it later.
+    name: Mapped[str | None] = mapped_column(String(60))
     # Stored as a plain string (not a Postgres ENUM type) so adding a role
     # later doesn't need a type migration.
     role: Mapped[Role] = mapped_column(
